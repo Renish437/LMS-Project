@@ -16,8 +16,8 @@ Route::get('/dashboard', function () {
 Route::get('/admin/login', [AdminController::class,'login'])->name('admin.login');
 
 Route::middleware(['auth', 'verified','role:admin'])->prefix('admin')->name('admin.')->group(function () {
-    Route::get('/admin/dashboard', [AdminController::class,'dashboard'])->name('dashboard');
-
+    Route::get('/dashboard', [AdminController::class,'dashboard'])->name('dashboard');
+    Route::post('/logout', [AdminController::class,'logout'])->name('logout');
 });
 
 

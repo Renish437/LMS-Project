@@ -46,7 +46,7 @@
 											<div class="col-12">
 												<label for="inputChoosePassword" class="form-label">Password</label>
 												<div class="input-group" id="show_hide_password">
-													<input name="password"  value="{{ old('password') }}" type="password" class="form-control border-end-0" id="inputChoosePassword" value="12345678" placeholder="Enter Password"> <a href="javascript:;" class="input-group-text bg-transparent"><i class="bx bx-hide"></i></a>
+													<input name="password"  value="{{ old('password') }}" type="password" class="form-control border-end-0 p-2" id="inputChoosePassword" value="12345678" placeholder="Enter Password"> <a href="javascript:;" class="input-group-text bg-transparent"><i class="bx bx-hide"></i></a>
                                                     <x-input-error :messages="$errors->get('password')" class="mt-2" />
 												</div>
 											</div>
@@ -55,7 +55,7 @@
 											</div>
 											<div class="col-12">
 												<div class="d-grid">
-													<button type="submit" class="btn btn-primary">Sign in</button>
+													<button type="submit" class="btn btn-primary mt-3">Sign in</button>
 												</div>
 											</div>
 											
