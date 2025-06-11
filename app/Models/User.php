@@ -36,6 +36,7 @@ class User extends Authenticatable
         'city',
         'country',
         'gender',
+        'experience',
     ];
     public function isAdmin(){
         return $this->role === 'admin';

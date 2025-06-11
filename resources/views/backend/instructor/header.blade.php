@@ -138,17 +138,17 @@
                     <div class="user-box dropdown px-3">
                         <a class="d-flex align-items-center nav-link dropdown-toggle gap-3 dropdown-toggle-nocaret"
                             href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="{{ asset('backend/assets/images/avatars/avatar-2.png') }}" class="user-img" alt="user avatar">
+                            <img src="{{ Auth::user()->photo ? asset(Auth::user()->photo) : asset('backend/assets/images/avatars/avatar-2.png') }}" class="user-img" alt="user avatar">
                             <div class="user-info">
-                                <p class="user-name mb-0">Pauline Seitz</p>
-                                <p class="designattion mb-0">Web Designer</p>
+                                <p class="user-name mb-0">{{ Auth::user()->name }}</p>
+                                <p class="designattion mb-0">Instructor</p>
                             </div>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item d-flex align-items-center" href="{{ route('admin.profile') }}"><i
+                            <li><a class="dropdown-item d-flex align-items-center" href="{{ route('instructor.profile') }}"><i
                                         class="bx bx-user fs-5"></i><span>Profile</span></a>
                             </li>
-                            <li><a class="dropdown-item d-flex align-items-center" href="{{ route('admin.setting') }}"><i
+                            <li><a class="dropdown-item d-flex align-items-center" href="{{ route('instructor.setting') }}"><i
                                         class="bx bx-cog fs-5"></i><span>Settings</span></a>
                             </li>
                             <li><a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
@@ -159,7 +159,7 @@
                                 <div class="dropdown-divider mb-0"></div>
                             </li>
                             <li>
-                                <form action="{{ route('admin.logout') }}" method="POST">
+                                <form action="{{ route('instructor.logout') }}" method="POST">
                                     @csrf
                                     <button type="submit" class="dropdown-item d-flex align-items-center">
                              <i
