@@ -2,7 +2,7 @@
 @section('content')
     <div class="page-content">
         <!--breadcrumb-->
-        @include('backend.section.breadcumb')
+        @include('backend.section.breadcumb',['title' => 'Categories','sub_title' => 'Create Category'])
         <!--end breadcrumb-->
         <h6 class="mb-0 text-uppercase">Categories</h6>
         <hr>

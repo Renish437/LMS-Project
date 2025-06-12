@@ -2,17 +2,17 @@
 @section('content')
     <div class="page-content">
         <!--breadcrumb-->
-        @include('backend.section.breadcumb',['title' => 'Slider','sub_title' => 'All Slider'])
+        @include('backend.section.breadcumb',['title' => 'Categories','sub_title' => 'All Categories'])
         <!--end breadcrumb-->
-        <h6 class="mb-0 text-uppercase">Slider</h6>
+        <h6 class="mb-0 text-uppercase">Categories</h6>
         <hr>
         <div class="card">
             <div class="card-body">
                 <div class="d-flex align-items-center justify-content-between mb-3">
-                    <p>All Sliders</p>
+                    <p>All Categories</p>
 
                     <div>
-                        <a href="{{ route('admin.slider.create') }}" class="btn btn-primary">Add Slider</a>
+                        <a href="{{ route('admin.category.create') }}" class="btn btn-primary">Add Category</a>
                     </div>
                 </div>
                 <table class="table-responsive">
@@ -45,13 +45,19 @@
                                                 No</th>
                                             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1"
                                                 colspan="1" style="width: 233.333px;"
-                                                aria-label="Position: activate to sort column ascending">Thumbnail</th>
+                                                aria-label="Position: activate to sort column ascending">Image</th>
                                             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1"
                                                 colspan="1" style="width: 106.333px;"
-                                                aria-label="Office: activate to sort column ascending">Slder Description</th>
+                                                aria-label="Office: activate to sort column ascending">Name</th>
                                             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1"
                                                 colspan="1" style="width: 48.3333px;"
-                                                aria-label="Age: activate to sort column ascending">Image</th>
+                                                aria-label="Age: activate to sort column ascending">Email</th>
+                                            <th class="sorting" tabindex="0" aria-controls="example" rowspan="1"
+                                                colspan="1" style="width: 48.3333px;"
+                                                aria-label="Age: activate to sort column ascending">Phone</th>
+                                            <th class="sorting" tabindex="0" aria-controls="example" rowspan="1"
+                                                colspan="1" style="width: 48.3333px;"
+                                                aria-label="Age: activate to sort column ascending">Status</th>
                                             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1"
                                                 colspan="1" style="width: 104.333px;"
                                                 aria-label="Start date: activate to sort column ascending">Action</th>
@@ -59,22 +65,38 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($sliders as $key => $slider)
+                                        @foreach ($instructors as $key => $instructor)
                                             <tr role="row" class="odd">
                                                 <td width="10%">{{ $key + 1 }}</td>
-                                                <td>{{ $slider->title }}</td>
-                                                <td>{{ $slider->short_description }}</td>
-                                                <td>
-                                                    @if ($slider->image)
-                                                        <img src="{{ asset($slider->image) }}" width="60"
-                                                            height="60" alt="">
+                                                <td width="20%">
+                                                  @if($instructor->photo)
+                                                    <img class="img-fluid" src="{{ asset($instructor->photo) }}" alt="">
                                                     @else
-                                                        <span>No Image</span>
+                                                    <span>No Image</span> 
+                                                  @endif
+                                                </td>
+                                                <td>{{ $instructor->name }}</td>
+                                                <td>{{ $instructor->email }}</td>
+                                                <td>
+                                                    {{ $instructor->phone }}
+                                                </td>
+                                                <td>
+                                                    @if ($instructor->status == 1)
+                                                        <span class="badge bg-success">Active</span>
+                                                    @else
+                                                        <span class="badge bg-danger">Inactive</span>
                                                     @endif
+                                                </td>
+                                                <td>
+                                                    <div class="form-check form-switch">
+                                                        <input class="form-check-input" type="checkbox" style="cursor: pointer"
+                                                            role="switch" id="flexSwitchCheckDefault" data-user-id="{{ $instructor->id }}"
+                                                            {{ $instructor->status == 1 ? 'checked' : '' }}>
+                                                    </div>
                                                 </td>
                                                 <td class="gap-3">
                                                     <a class="btn btn-primary"
-                                                        href="{{ route('admin.slider.edit', $slider->id) }}">
+                                                        href="{{ route('admin.instructor.edit', $instructor->id) }}">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16"
                                                             height="16" fill="currentColor" class="bi bi-pencil-square"
                                                             viewBox="0 0 16 16">
@@ -84,8 +106,8 @@
                                                                 d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
                                                         </svg>
                                                     </a>
-                                                    <a  href="javascript:;" data-id="{{ $slider->id }}"
-                                                        class="btn btn-danger delete-slider">
+                                                    <a  href="javascript:;" data-id="{{ $instructor->id }}"
+                                                        class="btn btn-danger delete-instructor">
 
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16"
                                                             height="16" fill="currentColor" class="bi bi-trash"
@@ -96,7 +118,7 @@
                                                                 d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
                                                         </svg>
                                                     </a>
-                                                    <form id="delete-slider-form" method="post" class="d-none">
+                                                    <form id="delete-form" method="post" class="d-none">
                                                         @csrf
                                                         @method('DELETE')
 
@@ -120,10 +142,10 @@
     </div>
     @push('scripts')
         <script>
-            $(document).on('click', '.delete-slider', function(e) {
+            $(document).on('click', '.delete-instructor', function(e) {
                 e.preventDefault();
-                let categoryId = $(this).data('id');
-                let deleteUrl = "{{ route('admin.slider.destroy', ':id') }}".replace(':id', categoryId);
+                let instructorId = $(this).data('id');
+                let deleteUrl = "{{ route('admin.instructor.destroy', ':id') }}".replace(':id', instructorId);
                 Swal.fire({
                     title: 'Are you sure?',
                     text: "You won't be able to revert this!",
@@ -134,7 +156,7 @@
                     confirmButtonText: 'Yes, delete it!'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        $('#delete-slider-form').attr('action', deleteUrl).submit();
+                        $('#delete-form').attr('action', deleteUrl).submit();
                     }
                 });
             });

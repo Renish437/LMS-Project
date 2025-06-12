@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\backend\AdminController;
+use App\Http\Controllers\backend\AdminInstructorController;
 use App\Http\Controllers\backend\AdminProfileController;
 use App\Http\Controllers\backend\CategoryController;
+use App\Http\Controllers\backend\InfoBoxController;
 use App\Http\Controllers\backend\InstructorController;
 use App\Http\Controllers\backend\InstructorProfileController;
 use App\Http\Controllers\backend\SliderController;
@@ -39,6 +41,14 @@ Route::middleware(['auth', 'verified','role:admin'])->prefix('admin')->name('adm
 
     // Manage silder
     Route::resource('slider', SliderController::class);
+
+    // Manage Infobox 
+    Route::resource('infobox', InfoBoxController::class);
+
+     // Control Instructor
+    Route::resource('instructor', AdminInstructorController::class);
+    Route::post('/update-status',[AdminInstructorController::class,'updateStatus'])->name('update.status');
+    Route::get('/instructor-active-list',[AdminInstructorController::class,'instructorActive'])->name('active.list');
 });
 
 //Instructor login
@@ -53,7 +63,7 @@ Route::middleware(['auth', 'verified','role:instructor'])->prefix('instructor')-
     Route::get('/setting',[InstructorProfileController::class,'setting'])->name('setting');
     Route::post('/password/update',[InstructorProfileController::class,'passwordUpdate'])->name('password.update');
     
-   
+  
     
 });
 

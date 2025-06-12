@@ -35,7 +35,24 @@
                 
              </ul>
          </li>
-         <li class="{{ setActive(['admin.slider*']) }}">
+            <li class="{{ setActive(['admin.instructor*']) }}">
+             <a href="javascript:;" class="has-arrow">
+                 <div class="parent-icon"><i class="bx bx-category"></i>
+                 </div>
+                 <div class="menu-title">Manage Instructor</div>
+             </a>
+             <ul>
+                 <li class="{{ setActive(['admin.instructor*']) }}"> <a href="{{ route('admin.instructor.index') }}">
+                    <i class='bx bx-radio-circle'></i>All Instructor</a>
+                 </li>
+                 {{-- <li class="{{ setActive(['admin.infobox*']) }}"> <a href="{{ route('admin.infobox.index') }}">
+                    <i class='bx bx-radio-circle'></i>Active Instructor</a>
+                 </li> --}}
+              
+                
+             </ul>
+         </li>
+         <li class="{{ setActive(['admin.slider*','admin.infobox*']) }}">
              <a href="javascript:;" class="has-arrow">
                  <div class="parent-icon"><i class="bx bx-category"></i>
                  </div>
@@ -44,6 +61,9 @@
              <ul>
                  <li class="{{ setActive(['admin.slider*']) }}"> <a href="{{ route('admin.slider.index') }}">
                     <i class='bx bx-radio-circle'></i>Manage Slider</a>
+                 </li>
+                 <li class="{{ setActive(['admin.infobox*']) }}"> <a href="{{ route('admin.infobox.index') }}">
+                    <i class='bx bx-radio-circle'></i>Manage Infobox</a>
                  </li>
               
                 
