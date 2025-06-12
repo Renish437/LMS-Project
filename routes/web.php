@@ -5,6 +5,7 @@ use App\Http\Controllers\backend\AdminProfileController;
 use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\InstructorController;
 use App\Http\Controllers\backend\InstructorProfileController;
+use App\Http\Controllers\backend\SliderController;
 use App\Http\Controllers\backend\SubCategoryController;
 use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\ProfileController;
@@ -35,6 +36,9 @@ Route::middleware(['auth', 'verified','role:admin'])->prefix('admin')->name('adm
     // Category Crud
     Route::resource('category',CategoryController::class);
     Route::resource('subcategory',SubCategoryController::class);
+
+    // Manage silder
+    Route::resource('slider', SliderController::class);
 });
 
 //Instructor login
@@ -48,7 +52,8 @@ Route::middleware(['auth', 'verified','role:instructor'])->prefix('instructor')-
     Route::post('/profile/store',[InstructorProfileController::class,'store'])->name('profile.store');
     Route::get('/setting',[InstructorProfileController::class,'setting'])->name('setting');
     Route::post('/password/update',[InstructorProfileController::class,'passwordUpdate'])->name('password.update');
-
+    
+   
     
 });
 
