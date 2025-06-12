@@ -28,11 +28,11 @@
                                 @endif
 									<div class="col-md-6">
 										<label for="name" class="form-label">Name</label>
-										<input type="text" class="form-control" name="name" id="name" placeholder="Enter SubCategory Name">
+										<input type="text" class="form-control" name="name" value="{{ old('name') }}" id="name" placeholder="Enter SubCategory Name">
 									</div>
 									<div class="col-md-6">
 										<label for="slug" class="form-label">Slug</label>
-										<input type="text" class="form-control" name="slug" id="slug" placeholder="Create Slug">
+										<input type="text" class="form-control" name="slug" value="{{ old('slug') }}" id="slug" placeholder="Create Slug">
 									</div>
                                     <div class="col-md-6">
 										<label for="category" class="form-label">Select Category </label>

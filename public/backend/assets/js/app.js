@@ -17,18 +17,40 @@ $(function() {
 		
 
 
+   $(document).ready(function() {
 
-		$(".dark-mode").on("click", function() {
+	// Page load for change theme
+	   if(localStorage.getItem("theme") === "dark") {
+		   $('html').addClass('dark-theme');
+		   $('.dark-mode-icon i').attr('class','bx bx-sun');
+	   }else{
+		   $('html').addClass('light-theme');
+		   $('.dark-mode-icon i').attr('class','bx bx-moon');
+	   }
+	   // Dark mode toggle function
+	   $('.dark-mode').on('click',function(){
+		  if( $('html').hasClass('dark-theme')){
+			  $('html').removeClass('dark-theme').addClass('light-theme');
+			  $('.dark-mode-icon i').attr('class','bx bx-moon');
+			  localStorage.setItem("theme","light");
+		  }else{
+			  $('html').addClass('dark-theme').removeClass('light-theme');
+			  $('.dark-mode-icon i').attr('class','bx bx-sun');
+			  localStorage.setItem("theme","dark");
+		  }
+	   })
+   })
+		// $(".dark-mode").on("click", function() {
 
-			if($(".dark-mode-icon i").attr("class") == 'bx bx-sun') {
-				$(".dark-mode-icon i").attr("class", "bx bx-moon");
-				$("html").attr("class", "light-theme")
-			} else {
-				$(".dark-mode-icon i").attr("class", "bx bx-sun");
-				$("html").attr("class", "dark-theme")
-			}
+		// 	if($(".dark-mode-icon i").attr("class") == 'bx bx-sun') {
+		// 		$(".dark-mode-icon i").attr("class", "bx bx-moon");
+		// 		$("html").attr("class", "light-theme")
+		// 	} else {
+		// 		$(".dark-mode-icon i").attr("class", "bx bx-sun");
+		// 		$("html").attr("class", "dark-theme")
+		// 	}
 
-		}), 
+		// }), 
 
 		
 		$(".toggle-icon").click(function() {

@@ -11,25 +11,25 @@
      </div>
      <!--navigation-->
      <ul class="metismenu" id="menu">
-         <li>
-             <a href="javascript:;" class="has-arrow">
+         <li  class="{{ setActive(['admin.dashboard']) }}" >
+             <a href="{{ route('admin.dashboard') }}">
                  <div class="parent-icon"><i class='bx bx-home-alt'></i>
                  </div>
                  <div class="menu-title">Dashboard</div>
              </a>
 
          </li>
-         <li>
+         <li class="{{ setActive(['admin.category*','admin.subcategory*']) }}">
              <a href="javascript:;" class="has-arrow">
                  <div class="parent-icon"><i class="bx bx-category"></i>
                  </div>
                  <div class="menu-title">Manage Category</div>
              </a>
              <ul>
-                 <li> <a href="{{ route('admin.category.index') }}">
+                 <li class="{{ setActive(['admin.category*']) }}"> <a href="{{ route('admin.category.index') }}">
                     <i class='bx bx-radio-circle'></i>Category</a>
                  </li>
-                 <li> <a href="{{ route('admin.subcategory.index') }}">
+                 <li class="{{ setActive(['admin.subcategory*']) }}"> <a href="{{ route('admin.subcategory.index') }}" >
                     <i class='bx bx-radio-circle'></i>SubCategory</a>
                  </li>
                 

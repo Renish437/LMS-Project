@@ -26,7 +26,7 @@ class CategoryRequest extends FormRequest
             //
             'name'=>'required|string|max:255',
             'slug'=>'required|string|max:255|unique:categories,slug,'.$categoryId,
-            'image'=>'nullable|image|mimes:jpg,png,jpeg,gif,svg,webp|max:2048',
+            'image'=>'nullable|mimes:jpg,png,jpeg,gif,svg,webp,avif|max:2048',
         ];
     }
 }
