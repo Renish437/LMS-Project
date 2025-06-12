@@ -43,11 +43,20 @@
     {{-- End Photo Preview Script --}}
   
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <!--app JS-->
 <script src="{{ asset('backend/assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js') }}"></script>
 <script src="{{ asset('backend/assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
 <script src="{{ asset('backend/assets/plugins/chartjs/js/chart.js') }}"></script>
 <script src="{{ asset('backend/assets/js/index.js') }}"></script>
+<script src="{{ asset('backend/assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
+	<script src="{{ asset('backend/assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
+	{{-- <script>
+		$(document).ready(function() {
+			$('#example').DataTable();
+		  } );
+	</script> --}}
+	
 <script src="{{ asset('backend/assets/js/app.js') }}"></script>
 
 {{-- Sweet Alert toast --}}
@@ -97,3 +106,4 @@
         
     @endif
 </script>
+@stack('scripts')
