@@ -1,6 +1,15 @@
   @extends('backend.instructor.master')
   @section('content')
   <div class="page-content">
+   @if (!isApprovedUser())
+    <div class="alert alert-danger bg-danger text-white d-flex align-items-center" role="alert">
+        <i class="la la-info-circle mr-2" style="font-size: 1.5rem;"></i>
+        <div>
+            Your account is currently <strong>inactive</strong>. Please wait for admin approval.
+        </div>
+    </div>
+@endif
+
       <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
           <div class="col">
               <div class="card radius-10 border-start  border-4 border-info">

@@ -36,7 +36,7 @@
 									</div>
                                     <div class="col-md-6">
 										<label for="image" class="form-label">Image</label>
-										<input type="file" class="form-control" name="image" id="photo" >
+										<input type="file" class="form-control" name="course_image" id="photo" >
 									</div>
                                     <div class="col-md-6">
                                     <img src="" id="photoPreview" width="60" height="60" alt="image" style="margin-top: 15px;display: none">

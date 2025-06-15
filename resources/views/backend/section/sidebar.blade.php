@@ -42,12 +42,12 @@
                  <div class="menu-title">Manage Instructor</div>
              </a>
              <ul>
-                 <li class="{{ setActive(['admin.instructor*']) }}"> <a href="{{ route('admin.instructor.index') }}">
+                 <li class="{{ setActive(['admin.instructor.status']) }}"> <a href="{{ route('admin.instructor.index') }}">
                     <i class='bx bx-radio-circle'></i>All Instructor</a>
                  </li>
-                 {{-- <li class="{{ setActive(['admin.infobox*']) }}"> <a href="{{ route('admin.infobox.index') }}">
+                  <li class="{{ setActive(['admin.active.list']) }}"> <a href="{{ route('admin.active.list') }}">
                     <i class='bx bx-radio-circle'></i>Active Instructor</a>
-                 </li> --}}
+                 </li> 
               
                 
              </ul>

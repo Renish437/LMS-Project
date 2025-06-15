@@ -5,6 +5,8 @@
  */
 
 use App\Models\Category;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 if(!function_exists('getCategories')){
@@ -13,6 +15,15 @@ if(!function_exists('getCategories')){
     }
 }
 
+if(!function_exists('isApprovedUser')){
+    function isApprovedUser(){
+        
+        return User::where('role','instructor')
+        ->where('status','1')
+        ->where('id',Auth::user()->id)
+        ->first();
+    }
+}
 
 /**
  * Get Active Route Name

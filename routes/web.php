@@ -4,6 +4,9 @@ use App\Http\Controllers\backend\AdminController;
 use App\Http\Controllers\backend\AdminInstructorController;
 use App\Http\Controllers\backend\AdminProfileController;
 use App\Http\Controllers\backend\CategoryController;
+use App\Http\Controllers\backend\CourseController;
+use App\Http\Controllers\backend\CourseLectureController;
+use App\Http\Controllers\backend\CourseSectionController;
 use App\Http\Controllers\backend\InfoBoxController;
 use App\Http\Controllers\backend\InstructorController;
 use App\Http\Controllers\backend\InstructorProfileController;
@@ -47,14 +50,14 @@ Route::middleware(['auth', 'verified','role:admin'])->prefix('admin')->name('adm
 
      // Control Instructor
     Route::resource('instructor', AdminInstructorController::class);
-    Route::post('/update-status',[AdminInstructorController::class,'updateStatus'])->name('update.status');
-    Route::get('/instructor-active-list',[AdminInstructorController::class,'instructorActive'])->name('active.list');
+    Route::post('/update-status',[AdminInstructorController::class,'updateStatus'])->name('instructor.status');
+    Route::get('/instructor-active-list',[AdminInstructorController::class,'instructorsActive'])->name('active.list');
 });
 
 //Instructor login
 Route::get('/instructor/login', [InstructorController::class,'login'])->name('instructor.login');
 
-Route::middleware(['auth', 'verified','role:instructor'])->prefix('instructor')->name('instructor.')->group(function () {
+Route::middleware(['web','auth', 'verified','role:instructor'])->prefix('instructor')->name('instructor.')->group(function () {
     Route::get('/dashboard', [InstructorController::class,'dashboard'])->name('dashboard');
     Route::post('/logout', [InstructorController::class,'logout'])->name('logout');
    // Profile Routes
@@ -62,6 +65,16 @@ Route::middleware(['auth', 'verified','role:instructor'])->prefix('instructor')-
     Route::post('/profile/store',[InstructorProfileController::class,'store'])->name('profile.store');
     Route::get('/setting',[InstructorProfileController::class,'setting'])->name('setting');
     Route::post('/password/update',[InstructorProfileController::class,'passwordUpdate'])->name('password.update');
+
+    //Manage Courses
+    Route::resource('course', CourseController::class);
+    //Manage Course section
+    Route::resource('course-section', CourseSectionController::class);
+    //Manage Course lecture
+    Route::resource('lecture', CourseLectureController::class);
+
+    Route::get('/get-subcategories/{categoryId}', [CategoryController::class,'getSubcategories']);
+
     
   
     

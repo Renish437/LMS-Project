@@ -14,8 +14,27 @@ class AdminInstructorController extends Controller
     public function index()
     {
         //
-        $instructors = User::where('role', 'instructor')->latest()->get();
-        return view('backend.admin.instructor.index',compact('instructors'));
+        $all_instructors = User::where('role', 'instructor')->latest()->get();
+        return view('backend.admin.instructor.index', compact('all_instructors'));
+    }
+    public function instructorsActive(Request $request)
+    {
+        $active_instructors = User::where('status', '1')->where('role', 'instructor')->latest()->get();
+        // dd($active_instructors);
+        return view('backend.admin.instructor.active', compact('active_instructors'));
+    }
+    public function updateStatus(Request $request)
+    {
+        if ($request->ajax()) {
+            $user = User::findOrFail($request->user_id);
+            $user->status = $request->status;
+            $saved = $user->save();
+            if ($saved) {
+                return response()->json(['success' => true, 'message' => 'Status updated successfully']);
+            } else {
+                return response()->json(['success' => false, 'message' => 'Failed to update status']);
+            }
+        }
     }
 
     /**

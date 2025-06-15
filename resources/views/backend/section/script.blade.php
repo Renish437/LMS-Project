@@ -47,7 +47,7 @@
 <!--app JS-->
 <script src="{{ asset('backend/assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js') }}"></script>
 <script src="{{ asset('backend/assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
-<script src="{{ asset('backend/assets/plugins/chartjs/js/chart.js') }}"></script>
+{{-- <script src="{{ asset('backend/assets/plugins/chartjs/js/chart.js') }}"></script> --}}
 <script src="{{ asset('backend/assets/js/index.js') }}"></script>
 <script src="{{ asset('backend/assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
 	<script src="{{ asset('backend/assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
@@ -56,8 +56,19 @@
 			$('#example').DataTable();
 		  } );
 	</script> --}}
+
+    <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js"></script>
+        <script>
+
+             
+                new FroalaEditor(".editor", {
+                    theme: "dark",
+                    height: 300
+                });
+        </script>
 	
-<script src="{{ asset('backend/assets/js/app.js') }}"></script>
+  <script src="{{ asset('backend/assets/js/app.js') }}"></script>
 
 {{-- Sweet Alert toast --}}
 <script>
@@ -106,4 +117,6 @@
         
     @endif
 </script>
+ 
+      
 @stack('scripts')
