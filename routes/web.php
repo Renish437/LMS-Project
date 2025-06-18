@@ -12,6 +12,7 @@ use App\Http\Controllers\backend\InstructorController;
 use App\Http\Controllers\backend\InstructorProfileController;
 use App\Http\Controllers\backend\SliderController;
 use App\Http\Controllers\backend\SubCategoryController;
+use App\Http\Controllers\frontend\CourseDetailController;
 use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -87,5 +88,6 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/', [HomeController::class, 'index'])->name('front.home');
+Route::get('/course-details/{slug}', [CourseDetailController::class, 'courseDetails'])->name('course.details');
 
 require __DIR__.'/auth.php';

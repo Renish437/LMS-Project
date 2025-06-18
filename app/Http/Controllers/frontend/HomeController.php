@@ -16,7 +16,12 @@ class HomeController extends Controller
         $info_boxes = InfoBox::latest()->get();
 
         $categories = Category::inRandomOrder()->get();
+        $all_categories = Category::with('courses','courses.user')->get();
+      
+        // dd($course_categories);
         
-        return view('frontend.pages.home.index',compact('sliders','info_boxes','categories'));
+
+        
+        return view('frontend.pages.home.index',compact('sliders','info_boxes','categories','all_categories'));
     }
 }

@@ -18,6 +18,7 @@
 <link rel="stylesheet" href="{{ asset('frontend/css/fancybox.css') }}">
 <link rel="stylesheet" href="{{ asset('frontend/css/tooltipster.bundle.css') }}">
 <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
+<link rel="stylesheet" href="{{ asset('frontend/css/plyr.css') }}">
 <!-- end inject -->
 
 
