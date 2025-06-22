@@ -1,6 +1,7 @@
     <div class="course-overview-card pt-4">
                        <h3 class="fs-24 font-weight-semi-bold pb-4">About the instructor</h3>
                        <div class="instructor-wrap">
+                      
                            <div class="media media-card">
                                <div class="instructor-img">
                                    <a href="teacher-detail.html" class="media-img d-block">

@@ -12,7 +12,7 @@
                 <div class="card-body">
                     <div class="media media-card align-items-center pb-3">
                         <div class="media-img avatar-md">
-                            <img src="images/small-avatar-1.jpg" alt="Testimonial avatar" class="rounded-full">
+                            <img src="{{ asset('frontend/images/small-avatar-1.jpg') }}" alt="Testimonial avatar" class="rounded-full">
                         </div>
                         <div class="media-body">
                             <h5>Kevin Martin</h5>
@@ -39,7 +39,7 @@
                 <div class="card-body">
                     <div class="media media-card align-items-center pb-3">
                         <div class="media-img avatar-md">
-                            <img src="images/small-avatar-2.jpg" alt="Testimonial avatar" class="rounded-full">
+                            <img src="{{ asset('frontend/images/small-avatar-2.jpg') }}" alt="Testimonial avatar" class="rounded-full">
                         </div>
                         <div class="media-body">
                             <h5>Oliver Beddows</h5>
@@ -68,7 +68,7 @@
                 <div class="card-body">
                     <div class="media media-card align-items-center pb-3">
                         <div class="media-img avatar-md">
-                            <img src="images/small-avatar-3.jpg" alt="Testimonial avatar" class="rounded-full">
+                            <img src="{{ asset('frontend/images/small-avatar-3.jpg') }}" alt="Testimonial avatar" class="rounded-full">
                         </div>
                         <div class="media-body">
                             <h5>Jackob Hallac</h5>
@@ -95,7 +95,7 @@
                 <div class="card-body">
                     <div class="media media-card align-items-center pb-3">
                         <div class="media-img avatar-md">
-                            <img src="images/small-avatar-4.jpg" alt="Testimonial avatar" class="rounded-full">
+                            <img src="{{ asset('frontend/images/small-avatar-4.jpg') }}" alt="Testimonial avatar" class="rounded-full">
                         </div>
                         <div class="media-body">
                             <h5>Lubic Duble</h5>
@@ -121,7 +121,7 @@
                 <div class="card-body">
                     <div class="media media-card align-items-center pb-3">
                         <div class="media-img avatar-md">
-                            <img src="images/small-avatar-5.jpg" alt="Testimonial avatar" class="rounded-full">
+                            <img src="{{ asset('frontend/images/small-avatar-5.jpg') }}" alt="Testimonial avatar" class="rounded-full">
                         </div>
                         <div class="media-body">
                             <h5>Daniel Ward</h5>
@@ -149,7 +149,7 @@
                 <div class="card-body">
                     <div class="media media-card align-items-center pb-3">
                         <div class="media-img avatar-md">
-                            <img src="images/small-avatar-1.jpg" alt="Testimonial avatar" class="rounded-full">
+                            <img src="{{ asset('frontend/images/small-avatar-1.jpg') }}" alt="Testimonial avatar" class="rounded-full">
                         </div>
                         <div class="media-body">
                             <h5>Kevin Martin</h5>
@@ -176,7 +176,7 @@
                 <div class="card-body">
                     <div class="media media-card align-items-center pb-3">
                         <div class="media-img avatar-md">
-                            <img src="images/small-avatar-2.jpg" alt="Testimonial avatar" class="rounded-full">
+                            <img src="{{ asset('frontend/images/small-avatar-2.jpg') }}" alt="Testimonial avatar" class="rounded-full">
                         </div>
                         <div class="media-body">
                             <h5>Oliver Beddows</h5>
@@ -205,7 +205,7 @@
                 <div class="card-body">
                     <div class="media media-card align-items-center pb-3">
                         <div class="media-img avatar-md">
-                            <img src="images/small-avatar-3.jpg" alt="Testimonial avatar" class="rounded-full">
+                            <img src="{{ asset('frontend/images/small-avatar-3.jpg') }}" alt="Testimonial avatar" class="rounded-full">
                         </div>
                         <div class="media-body">
                             <h5>Jackob Hallac</h5>
@@ -232,7 +232,7 @@
                 <div class="card-body">
                     <div class="media media-card align-items-center pb-3">
                         <div class="media-img avatar-md">
-                            <img src="images/small-avatar-4.jpg" alt="Testimonial avatar" class="rounded-full">
+                            <img src="{{ asset('frontend/images/small-avatar-4.jpg') }}" alt="Testimonial avatar" class="rounded-full">
                         </div>
                         <div class="media-body">
                             <h5>Lubic Duble</h5>
@@ -258,7 +258,7 @@
                 <div class="card-body">
                     <div class="media media-card align-items-center pb-3">
                         <div class="media-img avatar-md">
-                            <img src="images/small-avatar-5.jpg" alt="Testimonial avatar" class="rounded-full">
+                            <img src="{{ asset('frontend/images/small-avatar-5.jpg') }}" alt="Testimonial avatar" class="rounded-full">
                         </div>
                         <div class="media-body">
                             <h5>Daniel Ward</h5>

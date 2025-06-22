@@ -91,9 +91,9 @@ Route::middleware(['web','auth', 'verified','role:user'])->prefix('user')->name(
    
    // Profile Routes
     Route::get('/profile',[UserProfileController::class,'index'])->name('profile');
-    Route::post('/profile/store',[InstructorProfileController::class,'store'])->name('profile.store');
+    Route::post('/profile/store',[UserProfileController::class,'store'])->name('profile.store');
     Route::get('/setting',[InstructorProfileController::class,'setting'])->name('setting');
-    Route::post('/password/update',[InstructorProfileController::class,'passwordUpdate'])->name('password.update');
+    Route::post('/password/update',[UserProfileController::class,'passwordUpdate'])->name('password.update');
 
     //Manage Courses
     Route::resource('course', CourseController::class);

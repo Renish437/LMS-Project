@@ -25,13 +25,13 @@ class PageController extends BaseController
       
         // dd($course_categories);
         
-
+     
         
         return view('frontend.pages.home.index',compact('sliders','info_boxes'));
     }
     public function courseDetails($slug){
       
-        $course = \App\Models\Course::where('course_name_slug',$slug)->with('category','subcategory','user:id,name,email,bio,created_at,updated_at','course_goals')->first();
+        $course = \App\Models\Course::where('course_name_slug',$slug)->with('category','subcategory','user:id,name,email,bio,created_at,updated_at,photo','course_goals')->first();
         $total_no_lecture = CourseLecture::where('course_id', $course->id)->count();
         $course_content = CourseSection::where('course_id', $course->id)->with('lecture')->get();
 

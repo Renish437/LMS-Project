@@ -91,7 +91,7 @@
                             @csrf
                           
                             <div class="input-box">
-                                <label class="label-text">First Name</label>
+                                <label class="label-text">Name</label>
                                 <div class="form-group">
                                     <input class="form-control form--control" type="text" name="name" value="{{ old('name') }}" placeholder="First name">
                                     <span class="la la-user input-icon"></span>
@@ -112,7 +112,7 @@
                                 <label class="label-text">Password</label>
                                 <div class="input-group mb-3">
                                     <span class="la la-lock input-icon"></span>
-                                    <input class="form-control form--control password-field" type="password" name="password" old="{{ old('password') }}" placeholder="Password">
+                                    <input class="form-control form--control password-field" type="password" name="password" placeholder="Password">
                                      
 
                                     <div class="input-group-append">
@@ -128,7 +128,7 @@
                                 <label class="label-text">Confirm Password</label>
                                 <div class="input-group mb-3">
                                     <span class="la la-lock input-icon"></span>
-                                    <input class="form-control form--control password-field" type="password" name="password_confirmation" old="{{ old('password_confirmation') }}" placeholder="Password">
+                                    <input class="form-control form--control password-field" type="password" name="password_confirmation"  placeholder="Password">
                                     
 
                                     <div class="input-group-append">

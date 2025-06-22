@@ -95,9 +95,9 @@
                                 <div class="icon-element icon-element-md fs-25 shadow-sm">Or</div>
                             </div>
                             <div class="input-box">
-                                <label class="label-text">Email or Username</label>
+                                <label class="label-text">Email</label>
                                 <div class="form-group">
-                                    <input class="form-control form--control" type="text" name="email" placeholder="Email or Username">
+                                    <input class="form-control form--control" type="text" name="email" value="{{ old('email') }}" placeholder="Email ">
                                     <span class="la la-user input-icon"></span>
                                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
 

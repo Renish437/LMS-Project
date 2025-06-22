@@ -14,7 +14,7 @@ class BaseController extends Controller
     {
          $categories = Category::inRandomOrder()->get();
         $all_categories = Category::with('courses','courses.user')->get();
-
+           
         View::share(['categories'=>$categories,'all_categories'=>$all_categories]);
 
     }

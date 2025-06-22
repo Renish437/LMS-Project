@@ -1,11 +1,11 @@
-<section class="about-area section--padding overflow-hidden">
+<section class="about-area section-padding overflow-hidden">
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
                 <div class="about-content pb-5">
                     <div class="section-heading">
                         <h5 class="ribbon ribbon-lg mb-2">About us</h5>
-                        <h2 class="section__title">Benefits of Learning With Aduca</h2>
+                        <h2 class="section__title">Benefits of Learning With EduNexus</h2>
                         <span class="section-divider"></span>
                         <p class="section__desc">
                             Simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
@@ -89,8 +89,8 @@
             </div><!-- end col-lg-6 -->
             <div class="col-lg-5 ml-auto">
                 <div class="generic-img-box">
-                    <img src="images/img-loading.png" data-src="images/img13.jpg" alt="About image" class="img__item img__item-1 lazy">
-                    <img src="images/img-loading.png" data-src="images/img14.jpg" alt="About image" class="img__item img__item-2 lazy">
+                    <img src="{{ asset('frontend/images/img13.jpg') }}" data-src="{{ asset('frontend/images/img13.jpg') }}" alt="About image" class="img__item img__item-1 lazy">
+                    <img  src="{{ asset('frontend/images/img14.jpg') }}"  data-src="{{ asset('frontend/images/img14.jpg') }}" alt="About image" class="img__item img__item-2 lazy">
                 </div><!-- end generic-img-box -->
             </div><!-- end col-lg-5 -->
         </div><!-- end row -->
