@@ -13,6 +13,7 @@ use App\Http\Controllers\backend\InstructorProfileController;
 use App\Http\Controllers\backend\SliderController;
 use App\Http\Controllers\backend\SubCategoryController;
 use App\Http\Controllers\backend\UserController;
+use App\Http\Controllers\backend\UserProfileController;
 use App\Http\Controllers\frontend\CourseDetailController;
 use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\frontend\PageController;
@@ -87,9 +88,9 @@ Route::middleware(['web','auth', 'verified','role:instructor'])->prefix('instruc
 // User Routes
 Route::middleware(['web','auth', 'verified','role:user'])->prefix('user')->name('user.')->group(function () {
     Route::get('/dashboard', [UserController::class,'dashboard'])->name('dashboard');
-    Route::post('/logout', [InstructorController::class,'logout'])->name('logout');
+   
    // Profile Routes
-    Route::get('/profile',[InstructorProfileController::class,'index'])->name('profile');
+    Route::get('/profile',[UserProfileController::class,'index'])->name('profile');
     Route::post('/profile/store',[InstructorProfileController::class,'store'])->name('profile.store');
     Route::get('/setting',[InstructorProfileController::class,'setting'])->name('setting');
     Route::post('/password/update',[InstructorProfileController::class,'passwordUpdate'])->name('password.update');

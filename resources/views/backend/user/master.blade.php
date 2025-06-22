@@ -41,7 +41,9 @@
             <i class="la la-times"></i>
         </div><!-- end off-canvas-menu-close -->
         <div class="logo-box px-4">
-            <a href="index.html" class="logo"><img src="images/logo.png" alt="logo"></a>
+            <a href="{{ route('user.dashboard') }}" class="logo">
+                 <x-logo/>
+            </a>
         </div>
         @include('backend.user.section.sidebar')
     </div><!-- end off-canvas-menu -->

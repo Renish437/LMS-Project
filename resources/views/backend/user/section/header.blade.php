@@ -37,7 +37,7 @@
                                                 <ul class="cart-dropdown-menu after-none">
                                                     <li class="media media-card">
                                                         <a href="lesson-details.html" class="media-img">
-                                                            <img class="mr-3" src="images/small-img-3.jpg" alt="Course thumbnail image">
+                                                            <img class="mr-3" src="{{ asset('frontend/images/small-img-3.jpg') }}" alt="Course thumbnail image">
                                                         </a>
                                                         <div class="media-body">
                                                             <h5><a href="lesson-details.html">The Complete JavaScript Course 2021: From Zero to Expert!</a></h5>
@@ -50,7 +50,7 @@
                                                     </li>
                                                     <li class="media media-card">
                                                         <a href="lesson-details.html" class="media-img">
-                                                            <img class="mr-3" src="images/small-img-4.jpg" alt="Course thumbnail image">
+                                                            <img class="mr-3"src="{{ asset('frontend/images/small-img-4.jpg') }}" alt="Course thumbnail image">
                                                         </a>
                                                         <div class="media-body">
                                                             <h5><a href="lesson-details.html">The Complete JavaScript Course 2021: From Zero to Expert!</a></h5>
@@ -78,7 +78,7 @@
                                                 <ul class="cart-dropdown-menu after-none">
                                                     <li class="media media-card">
                                                         <a href="shopping-cart.html" class="media-img">
-                                                            <img class="mr-3" src="images/small-img.jpg" alt="Cart image">
+                                                            <img class="mr-3" src="{{ asset('frontend/images/small-img.jpg') }}" alt="Cart image">
                                                         </a>
                                                         <div class="media-body">
                                                             <h5><a href="shopping-cart.html">The Complete JavaScript Course 2021: From Zero to Expert!</a></h5>
@@ -88,7 +88,7 @@
                                                     </li>
                                                     <li class="media media-card">
                                                         <a href="shopping-cart.html" class="media-img">
-                                                            <img class="mr-3" src="images/small-img.jpg" alt="Cart image">
+                                                            <img class="mr-3" src="{{ asset('frontend/images/small-img.jpg') }}" alt="Cart image">
                                                         </a>
                                                         <div class="media-body">
                                                             <h5><a href="shopping-cart.html">The Complete JavaScript Course 2021: From Zero to Expert!</a></h5>
@@ -119,7 +119,7 @@
                                                     <li>
                                                         <div class="media media-card">
                                                             <a href="course-details.html" class="media-img">
-                                                                <img class="mr-3" src="images/small-img.jpg" alt="Cart image">
+                                                                <img class="mr-3" src="{{ asset('frontend/images/small-img.jpg') }}" alt="Cart image">
                                                             </a>
                                                             <div class="media-body">
                                                                 <h5><a href="course-details.html">The Complete JavaScript Course 2021: From Zero to Expert!</a></h5>
@@ -132,7 +132,7 @@
                                                     <li>
                                                         <div class="media media-card">
                                                             <a href="course-details.html" class="media-img">
-                                                                <img class="mr-3" src="images/small-img.jpg" alt="Cart image">
+                                                                <img class="mr-3" src="{{ asset('frontend/images/small-img.jpg') }}" alt="Cart image">
                                                             </a>
                                                             <div class="media-body">
                                                                 <h5><a href="course-details.html">The Complete JavaScript Course 2021: From Zero to Expert!</a></h5>
@@ -260,7 +260,7 @@
                                                                 </a>
                                                             </li>
                                                             <li><div class="section-block"></div></li>
-                                                            <li>
+                                                            {{-- <li>
                                                                 <a href="dashboard.html">
                                                                     <i class="la la-bell mr-1"></i> Notifications
                                                                     <span class="badge bg-info text-white ml-2 p-1">9+</span>
@@ -288,18 +288,18 @@
                                                                 <a href="student-detail.html">
                                                                     <i class="la la-user mr-1"></i> Public profile
                                                                 </a>
-                                                            </li>
+                                                            </li> --}}
                                                             <li>
-                                                                <a href="dashboard-settings.html">
+                                                                <a href="{{ route('user.profile') }}">
                                                                     <i class="la la-edit mr-1"></i> Edit profile
                                                                 </a>
                                                             </li>
                                                             <li><div class="section-block"></div></li>
-                                                            <li>
+                                                            {{-- <li>
                                                                 <a href="#">
                                                                     <i class="la la-question mr-1"></i> Help
                                                                 </a>
-                                                            </li>
+                                                            </li> --}}
                                                             <li>
                                                                 <form class=" hidden" style="display: none;" id='logout-form' action="{{ route('logout') }}" method="post">
                                                                     @csrf
@@ -308,16 +308,7 @@
                                                                     <i class="la la-power-off mr-1"></i> Logout
                                                                 </a>
                                                             </li>
-                                                            <li><div class="section-block"></div></li>
-                                                            <li>
-                                                                <a href="#" class="position-relative">
-                                                                    <span class="fs-17 font-weight-semi-bold d-block">Aduca for Business</span>
-                                                                    <span class="lh-20 d-block fs-14 text-gray">Bring learning to your company</span>
-                                                                    <span class="position-absolute top-0 right-0 mt-3 mr-3 fs-18 text-gray">
-                                                                    <i class="la la-external-link"></i>
-                                                                </span>
-                                                                </a>
-                                                            </li>
+                                                          
                                                         </ul>
                                                     </li>
                                                 </ul>
