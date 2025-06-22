@@ -26,7 +26,7 @@
 @include('frontend.pages.course_details.course-content')
 
 
-@include('frontend.pages.course_details.student-bought')
+@include('frontend.pages.course_details.similar-courses')
 
 @include('frontend.pages.course_details.instructor-about') 
                    

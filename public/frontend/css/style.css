@@ -5310,7 +5310,7 @@ div.datedropper .picker .pick-lg-b li {
 .off-canvas-menu-toggle {
   display: none;
   cursor: pointer; }
-  @media (max-width: 1199px) {
+  @media (max-width: 1099px) {
     .search-menu-toggle,
     .off-canvas-menu-toggle {
       display: inline-block; } }

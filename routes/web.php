@@ -12,9 +12,12 @@ use App\Http\Controllers\backend\InstructorController;
 use App\Http\Controllers\backend\InstructorProfileController;
 use App\Http\Controllers\backend\SliderController;
 use App\Http\Controllers\backend\SubCategoryController;
+use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\frontend\CourseDetailController;
 use App\Http\Controllers\frontend\HomeController;
+use App\Http\Controllers\frontend\PageController;
 use App\Http\Controllers\ProfileController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -22,9 +25,9 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 //Admin Login
 Route::get('/admin/login', [AdminController::class,'login'])->name('admin.login');
@@ -81,13 +84,37 @@ Route::middleware(['web','auth', 'verified','role:instructor'])->prefix('instruc
     
 });
 
+// User Routes
+Route::middleware(['web','auth', 'verified','role:user'])->prefix('user')->name('user.')->group(function () {
+    Route::get('/dashboard', [UserController::class,'dashboard'])->name('dashboard');
+    Route::post('/logout', [InstructorController::class,'logout'])->name('logout');
+   // Profile Routes
+    Route::get('/profile',[InstructorProfileController::class,'index'])->name('profile');
+    Route::post('/profile/store',[InstructorProfileController::class,'store'])->name('profile.store');
+    Route::get('/setting',[InstructorProfileController::class,'setting'])->name('setting');
+    Route::post('/password/update',[InstructorProfileController::class,'passwordUpdate'])->name('password.update');
+
+    //Manage Courses
+    Route::resource('course', CourseController::class);
+    //Manage Course section
+    Route::resource('course-section', CourseSectionController::class);
+    //Manage Course lecture
+    Route::resource('lecture', CourseLectureController::class);
+
+    Route::get('/get-subcategories/{categoryId}', [CategoryController::class,'getSubcategories']);
+
+    
+  
+    
+});
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/', [HomeController::class, 'index'])->name('front.home');
-Route::get('/course-details/{slug}', [CourseDetailController::class, 'courseDetails'])->name('course.details');
+Route::get('/', [PageController::class, 'index'])->name('front.home');
+Route::get('/course-details/{slug}', [PageController::class, 'courseDetails'])->name('course.details');
 
 require __DIR__.'/auth.php';

@@ -126,11 +126,11 @@
                             <select class="form-select" name="label" id="label"
                                 data-placeholder="Choose one thing">
 
-                                <option selected disabled>select</option>
+                                <option selected disabled>Select Level</option>
 
-                                <option value="beginer">Beginer</option>
-                                <option value="medium">Medium</option>
-                                <option value="advance">Advance</option>
+                                <option value="Beginner">Beginner</option>
+                                <option value="Medium">Medium</option>
+                                <option value="Advance">Advance</option>
 
                             </select>
                         </div>

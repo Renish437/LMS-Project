@@ -1,24 +1,79 @@
-<!-- Modal -->
-<div class="modal fade modal-container" id="previewModal" tabindex="-1" role="dialog" aria-labelledby="previewModalTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header border-bottom-gray">
-                <div class="pr-2">
-                    <p class="pb-2 font-weight-semi-bold">Course Preview</p>
-                    <h5 class="modal-title fs-19 font-weight-semi-bold lh-24" id="previewModalTitle">Java Programming Masterclass for Software Developers</h5>
-                </div>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true" class="la la-times"></span>
-                </button>
-            </div><!-- end modal-header -->
-            <div class="modal-body">
-                <video controls crossorigin playsinline poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg" id="player">
-                    <!-- Video files -->
-                    <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" type="video/mp4"/>
-                    <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-720p.mp4" type="video/mp4"/>
-                    <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4" type="video/mp4"/>
-                </video>
-            </div><!-- end modal-body -->
-        </div><!-- end modal-content -->
-    </div><!-- end modal-dialog -->
+  <!-- Modal -->
+  <div class="modal fade modal-container" id="previewModal" tabindex="-1" role="dialog"
+  aria-labelledby="previewModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+          <div class="modal-header border-bottom-gray">
+              <div class="pr-2">
+                  <p class="pb-2 font-weight-semi-bold">Course Preview</p>
+                  <h5 class="modal-title fs-19 font-weight-semi-bold lh-24" id="previewModalTitle">{{$course->course_name}}</h5>
+              </div>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true" class="la la-times"></span>
+              </button>
+          </div><!-- end modal-header -->
+          <div class="modal-body">
+
+            <div class="col-md-12 mt-3">
+                <input type="hidden" class="form-control video_url" name="url" placeholder="Enter the YouTube video URL"
+                value="{{ old('url', $course->video_url) }}" required>
+
+            <iframe class="videoPreview" style="margin-top: 15px; width: 100%; height: 400px;"
+                frameborder="0" allowfullscreen></iframe>
+
+            </div>
+
+
+          </div><!-- end modal-body -->
+      </div><!-- end modal-content -->
+  </div><!-- end modal-dialog -->
 </div><!-- end modal -->
+
+
+
+
+@push('scripts')
+<script>
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    let videoInputs = document.querySelectorAll(".video_url"); 
+
+    videoInputs.forEach(videoInput => {
+        let videoPreview = videoInput.closest('.col-md-12').querySelector(".videoPreview"); 
+
+    
+        function extractYouTubeVideoID(url) {
+            let regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
+            let match = url.match(regex);
+            return match ? match[1] : null;
+        }
+
+  
+        function updateVideoPreview() {
+            let url = videoInput.value;
+            let videoId = extractYouTubeVideoID(url);
+
+            if (videoId) {
+                videoPreview.src = `https://www.youtube.com/embed/${videoId}`;
+                videoPreview.style.display = "block";
+            } else {
+                videoPreview.src = "";
+                videoPreview.style.display = "none";
+            }
+        }
+
+      
+        videoInput.addEventListener("input", updateVideoPreview);
+
+       
+        if (videoInput.value.trim() !== "") {
+            updateVideoPreview();
+        }
+    });
+});
+
+
+
+</script>
+@endpush
