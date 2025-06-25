@@ -27,7 +27,7 @@ class PageController extends BaseController
         
      
         
-        return view('frontend.pages.home.index',compact('sliders','info_boxes'));
+        return view('frontend.index',compact('sliders','info_boxes'));
     }
     public function courseDetails($slug){
       

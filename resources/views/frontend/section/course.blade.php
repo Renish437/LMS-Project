@@ -57,7 +57,26 @@
                                     </div><!-- end rating-wrap -->
                                     <div class="d-flex justify-content-between align-items-center">
                                         <p class="card-price text-black font-weight-bold">12.99 <span class="before-price font-weight-medium">129.99</span></p>
-                                        <div class="icon-element icon-element-sm shadow-sm cursor-pointer" title="Add to Wishlist"><i class="la la-heart-o"></i></div>
+                                        <div class="icon-element icon-element-sm shadow-sm cursor-pointer wishlist-icon" 
+                                            data-course-id="{{ $course->id }}"  title="Add to Wishlist">
+                                            <?php
+                                            if(auth()->check()){
+                                                $user_id = auth()->user()->id;
+                                            // check if the course is already in the wishlist
+                                            $isWishlisted = \App\Models\Wishlist::where('user_id', $user_id)->where('course_id', $course->id)->first();
+
+
+
+                                            }else{
+                                               $isWishlisted = null;
+                                            }
+                                            ?>
+                                            @if($isWishlisted)
+                                            <i class="la la-heart"></i>
+                                            @else
+                                            <i class="la la-heart-o"></i>
+                                            @endif
+                                        </div>
                                     </div>
                                 </div><!-- end card-body -->
                             </div><!-- end card -->

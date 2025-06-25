@@ -200,46 +200,51 @@
                                     </li>
                                 </ul><!-- end ul -->
                             </nav><!-- end main-menu -->
+                            {{-- Wishlist card --}}
                             <div class="shop-cart mr-4">
                                 <ul>
                                     <li>
-                                        <p class="shop-cart-btn d-flex align-items-center">
-                                            <i class="la la-shopping-cart"></i>
-                                            <span class="product-count">2</span>
+                                       <p class="shop-cart-btn d-flex align-items-center">
+
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                                                <path
+                                                    d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
+                                            </svg>
+
+                                            <?php
+                                            if (auth()->check()) {
+                                                $user_id = auth()->user()->id; // Get the authenticated user's ID
+                                                $wishlist = getWishlist(); // Get wishlist data
+                                                $wishlist_count = \App\Models\Wishlist::where('user_id', $user_id)->count(); // Count wishlist items
+                                            } else {
+                                                // Handle the case when the user is not logged in
+                                                $wishlist = collect(); // Empty collection if not logged in
+                                                $wishlist_count = 0; // No wishlist count if not logged in
+                                            }
+                                            ?>
+
+
+                                            <span class="product-count" id="wishlist-count"
+                                                style="margin-left: 5px">{{ $wishlist_count }}</span>
+
                                         </p>
-                                        <ul class="cart-dropdown-menu">
-                                            <li class="media media-card">
-                                                <a href="shopping-cart.html" class="media-img">
-                                                    <img src="images/small-img.jpg" alt="Cart image">
-                                                </a>
-                                                <div class="media-body">
-                                                    <h5><a href="course-details.html">The Complete JavaScript Course 2021: From Zero to Expert!</a></h5>
-                                                    <span class="d-block lh-18 py-1">Kamran Ahmed</span>
-                                                    <p class="text-black font-weight-semi-bold lh-18">$12.99 <span class="before-price fs-14">$129.99</span></p>
-                                                </div>
-                                            </li>
-                                            <li class="media media-card">
-                                                <a href="shopping-cart.html" class="media-img">
-                                                    <img src="images/small-img.jpg" alt="Cart image">
-                                                </a>
-                                                <div class="media-body">
-                                                    <h5><a href="course-details.html">The Complete JavaScript Course 2021: From Zero to Expert!</a></h5>
-                                                    <span class="d-block lh-18 py-1">Kamran Ahmed</span>
-                                                    <p class="text-black font-weight-semi-bold lh-18">$12.99 <span class="before-price fs-14">$129.99</span></p>
-                                                </div>
-                                            </li>
-                                            <li class="media media-card">
-                                                <div class="media-body fs-16">
-                                                    <p class="text-black font-weight-semi-bold lh-18">Total: <span class="cart-total">$12.99</span> <span class="before-price fs-14">$129.99</span></p>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <a href="shopping-cart.html" class="btn theme-btn w-100">Got to cart <i class="la la-arrow-right icon ml-1"></i></a>
-                                            </li>
-                                        </ul>
+
+                                        <div id="wishlist-course">
+
+                                            <!---ajax loaded wishlist  frontend.pages.home.partial.wishlist  -->
+
+
+
+                                        </div>
+
+
                                     </li>
                                 </ul>
-                            </div><!-- end shop-cart -->
+                            </div>
+
+                            <!-- end wishlist-card -->
+                            
                             <div class="nav-right-button">
                                 <a href="admission.html" class="btn theme-btn d-none d-lg-inline-block"><i class="la la-user-plus mr-1"></i> Admission</a>
                             </div><!-- end nav-right-button -->
