@@ -104,6 +104,10 @@ Route::middleware(['web','auth', 'verified','role:user'])->prefix('user')->name(
     Route::resource('lecture', CourseLectureController::class);
 
     Route::get('/get-subcategories/{categoryId}', [CategoryController::class,'getSubcategories']);
+    // Wishlist route
+    Route::get('/wishlist', [WhishlistController::class, 'index'])->name('wishlist.index');
+    Route::get('/wishlist-data', [WhishlistController::class, 'getWishlist'])->name('wishlist.data');
+    Route::delete('/wishlist/{id}', [WhishlistController::class, 'destroy'])->name('wishlist.destroy');
 
     
   
