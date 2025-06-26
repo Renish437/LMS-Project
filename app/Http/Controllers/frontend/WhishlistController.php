@@ -8,7 +8,7 @@ use App\Services\WishlistService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class WhishlistController extends Controller
+class WhishlistController extends BaseController
 {
 
     protected $wishlistService;
@@ -28,7 +28,7 @@ class WhishlistController extends Controller
     public function getWishlist()
     {
         $user_id = Auth::user()->id;
-        $wishlist = Wishlist::where('user_id', $user_id)->with('course', 'course.user')->paginate(6);
+        $wishlist = Wishlist::where('user_id', $user_id)->with('course', 'course.user')->paginate(4);
 
         $html = view('backend.user.section.partials.wishlist', compact('wishlist'))->render();
 
@@ -82,9 +82,14 @@ class WhishlistController extends Controller
         return $authResponse;
        }
 
+       
        $user_id = Auth::user()->id;
        $wishlistItems = Wishlist::where('user_id', $user_id)->with('course', 'course.user')->get();
-       $html = view('frontend.pages.home.partials.wishlist', compact('wishlistItems'))->render();
+       $subTotal = $wishlistItems->sum(function ($item) {
+         $price = $item->course->discount_price ?? $item->course->selling_price;
+         return $price * $item->quantity;
+     });
+       $html = view('frontend.pages.home.partials.wishlist', compact('wishlistItems', 'subTotal'))->render();
 
        return response()->json([
            'status' => 'success',

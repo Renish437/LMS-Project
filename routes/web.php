@@ -3,6 +3,7 @@
 use App\Http\Controllers\backend\AdminController;
 use App\Http\Controllers\backend\AdminInstructorController;
 use App\Http\Controllers\backend\AdminProfileController;
+
 use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\CourseController;
 use App\Http\Controllers\backend\CourseLectureController;
@@ -14,6 +15,8 @@ use App\Http\Controllers\backend\SliderController;
 use App\Http\Controllers\backend\SubCategoryController;
 use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\backend\UserProfileController;
+use App\Http\Controllers\frontend\CartController;
+use App\Http\Controllers\frontend\CheckoutController;
 use App\Http\Controllers\frontend\CourseDetailController;
 use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\frontend\PageController;
@@ -124,5 +127,19 @@ Route::get('/', [PageController::class, 'index'])->name('front.home');
 Route::get('/course-details/{slug}', [PageController::class, 'courseDetails'])->name('course.details');
 Route::post('/wishlist/add', [WhishlistController::class, 'addToWishlist'])->name('wishlist.store');
 Route::get('/wishlist/all', [WhishlistController::class, 'allWishlist'])->name('wishlist.all');
+
+
+Route::get('/cart-page',[CartController::class, 'index'])->name('cart.index');
+Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.store');
+Route::get('/cart/all', [CartController::class, 'cartAll'])->name('cart.all');
+Route::get('/fetch/cart',[CartController::class, 'fetchCart'])->name('cart.fetch');
+Route::delete('/remove/cart', [CartController::class, 'removeCart'])->name('cart.destroy');
+
+// Chekout route
+Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+Route::post('/checkout', [CheckoutController::class, 'checkout'])->name('checkout.store');
+
+
+
 
 require __DIR__.'/auth.php';

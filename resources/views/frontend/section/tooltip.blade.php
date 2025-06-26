@@ -1,3 +1,6 @@
+@php
+    $all_categories =  getAllCategories();
+@endphp
 @foreach ($all_categories as $data)
   @foreach ($data['courses'] as $course)
         <div class="tooltip_templates">
@@ -32,7 +35,10 @@
           
                 </ul>
                 <div class="d-flex justify-content-between align-items-center">
-                    <a href="#" class="btn theme-btn flex-grow-1 mr-3"><i class="la la-shopping-cart mr-1 fs-18"></i> Add to Cart</a>
+                   
+                    <button type="button" class="btn theme-btn flex-grow-1 mr-3 add-to-cart-button" data-course-id="{{ $course->id }}">
+                    <i class="la la-shopping-cart mr-1 fs-18"></i> Add to Cart
+                    </button>
                     <div class="icon-element icon-element-sm shadow-sm cursor-pointer" title="Add to Wishlist"><i class="la la-heart-o"></i></div>
                 </div>
             </div>

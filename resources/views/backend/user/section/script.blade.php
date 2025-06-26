@@ -15,6 +15,8 @@
 <script src="{{ asset('frontend/js/animated-skills.js') }}"></script>
 <script src="{{ asset('frontend/js/jquery.MultiFile.min.js') }}"></script>
 <script src="{{ asset('frontend/js/main.js') }}"></script>
+<script src="{{ asset('customjs/user/wishlist.js') }}"></script>
+<script src="{{ asset('customjs/cart/index.js') }}"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 {{-- Sweet Alert toast --}}
@@ -64,3 +66,4 @@
         
     @endif
 </script>
+@stack('scripts')

@@ -59,6 +59,13 @@ if (!function_exists('getWishlist')) {
     }
 }
 
+if(!function_exists('getAllCategories')) {
+    function getAllCategories()
+    {
+        return Category::with('courses','courses.user')->orderBy('name','asc')->get();
+    }
+}
+
 
 //Global Auth Check
 

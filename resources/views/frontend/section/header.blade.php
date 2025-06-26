@@ -107,41 +107,17 @@
                             <nav class="main-menu">
                                 <ul>
                                     <li>
-                                        <a href="#">Home <i class="la la-angle-down fs-12"></i></a>
-                                        <ul class="dropdown-menu-item">
-                                            <li><a href="index.html">Home One</a></li>
-                                            <li><a href="home-2.html">Home Two</a></li>
-                                            <li><a href="home-3.html">Home Three</a></li>
-                                            <li><a href="home-4.html">Home four</a></li>
-                                        </ul>
+                                        <a href="{{ url('/') }}">Home </a>
+                                        
                                     </li>
                                     <li>
-                                        <a href="#">courses <i class="la la-angle-down fs-12"></i></a>
-                                        <ul class="dropdown-menu-item">
-                                            <li><a href="course-grid.html">course grid</a></li>
-                                            <li><a href="course-list.html">course list</a></li>
-                                            <li><a href="course-grid-left-sidebar.html">grid left sidebar</a></li>
-                                            <li><a href="course-grid-right-sidebar.html">grid right sidebar</a></li>
-                                            <li><a href="course-list-left-sidebar.html">list left sidebar <span class="ribbon ribbon-blue-bg">New</span></a></li>
-                                            <li><a href="course-list-right-sidebar.html">list right sidebar <span class="ribbon ribbon-blue-bg">New</span></a></li>
-                                            <li><a href="course-details.html">course details</a></li>
-                                            <li><a href="lesson-details.html">lesson details</a></li>
-                                            <li><a href="my-courses.html">My courses</a></li>
-                                        </ul>
+                                        <a href="#">All Courses</a>
+                                      
                                     </li>
                                     <li>
-                                        <a href="#">Student <i class="la la-angle-down fs-12"></i></a>
-                                        <ul class="dropdown-menu-item">
-                                            <li><a href="student-detail.html">student detail</a></li>
-                                            <li><a href="student-quiz.html">take quiz</a></li>
-                                            <li><a href="student-quiz-results.html">quiz results</a></li>
-                                            <li><a href="student-quiz-result-details.html">quiz details</a></li>
-                                            <li><a href="student-quiz-result-details-2.html">quiz details 2</a></li>
-                                            <li><a href="student-path.html">path details</a></li>
-                                            <li><a href="student-path-assessment.html">Skill Assessment</a></li>
-                                            <li><a href="student-path-assessment-result.html">Skill result</a></li>
-                                        </ul>
+                                        <a href="{{ route('cart.index') }}">Cart </a>
                                     </li>
+                                  
                                     <li class="mega-menu-has">
                                         <a href="#">pages <i class="la la-angle-down fs-12"></i></a>
                                         <div class="dropdown-menu-item mega-menu">
@@ -189,14 +165,8 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <a href="#">blog <i class="la la-angle-down fs-12"></i></a>
-                                        <ul class="dropdown-menu-item">
-                                            <li><a href="blog-full-width.html">blog full width </a></li>
-                                            <li><a href="blog-no-sidebar.html">blog no sidebar</a></li>
-                                            <li><a href="blog-left-sidebar.html">blog left sidebar</a></li>
-                                            <li><a href="blog-right-sidebar.html">blog right sidebar</a></li>
-                                            <li><a href="blog-single.html">blog detail</a></li>
-                                        </ul>
+                                        <a href="#">Blog </a>
+                                       
                                     </li>
                                 </ul><!-- end ul -->
                             </nav><!-- end main-menu -->
@@ -244,10 +214,13 @@
                             </div>
 
                             <!-- end wishlist-card -->
+                            <div class="shop-cart mr-4" id="cart">
+                                {{-- Ajax loaded --}}
+
+                                
+                            </div>
                             
-                            <div class="nav-right-button">
-                                <a href="admission.html" class="btn theme-btn d-none d-lg-inline-block"><i class="la la-user-plus mr-1"></i> Admission</a>
-                            </div><!-- end nav-right-button -->
+                            
                         </div><!-- end menu-wrapper -->
                     </div><!-- end col-lg-10 -->
                 </div><!-- end row -->

@@ -12,7 +12,8 @@
 <script src="{{ asset('frontend/js/jquery.lazy.min.js') }}"></script>
 <script src="{{ asset('frontend/js/main.js') }}"></script>
 <script src="{{ asset('customjs/wishlist/index.js') }}"></script>
-
+ <script src="{{ asset('customjs/cart/index.js') }}"></script>
+ <script src="{{ asset('frontend/js/intlTelInput-jquery.min.js') }}"></script>
   
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 {{-- Sweet Alert toast --}}
