@@ -18,13 +18,13 @@
                             class="before-price fs-14">${{ $item->course->selling_price }}</span></p>
                 </div>
             </li>
-            <div class="my-2">
-                Sub Total: ${{ $subTotal }}
-            </div>
+         
             @empty
             <li>No item in cart</li>
             @endforelse
-
+               <div class="my-2">
+                Sub Total: ${{ $subTotal }}
+            </div>
             <li>
                 <a href="{{ route('checkout.index') }}" class="btn theme-btn w-100">Go to checkout <i
                         class="la la-arrow-right icon ml-1"></i></a>

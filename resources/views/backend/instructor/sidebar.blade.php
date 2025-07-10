@@ -20,7 +20,7 @@
 
          </li>
          @if (isApprovedUser())
-             <li class="{{ setActive(['instructor.course*']) }}">
+            <li class="{{ setActive(['instructor.course*']) }}">
              <a href="javascript:;" class="has-arrow">
                  <div class="parent-icon"><i class="bx bx-category"></i>
                  </div>
@@ -29,6 +29,22 @@
              <ul>
                  <li class="{{ setActive(['instructor.course.index']) }}"> <a href="{{ route('instructor.course.index') }}">
                     <i class='bx bx-radio-circle'></i>All course</a>
+                 </li>
+                
+                
+             </ul>
+         </li>
+            <li class="{{ setActive(['instructor.coupon*']) }}">
+             <a href="javascript:;" class="has-arrow">
+                 <div class="parent-icon"><i class="bx bx-category"></i>
+                 </div>
+                 <div class="menu-title">Manage Coupons</div>
+             </a>
+             <ul>
+                 <li class="{{ setActive(['instructor.coupon.index']) }}"> 
+                    <a href="{{ route('instructor.coupon.index') }}">
+                    <i class='bx bx-radio-circle'></i>All coupon 
+                    </a>
                  </li>
                 
                 

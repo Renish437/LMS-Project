@@ -5,6 +5,7 @@ use App\Http\Controllers\backend\AdminInstructorController;
 use App\Http\Controllers\backend\AdminProfileController;
 
 use App\Http\Controllers\backend\CategoryController;
+use App\Http\Controllers\backend\CouponController;
 use App\Http\Controllers\backend\CourseController;
 use App\Http\Controllers\backend\CourseLectureController;
 use App\Http\Controllers\backend\CourseSectionController;
@@ -83,6 +84,9 @@ Route::middleware(['web','auth', 'verified','role:instructor'])->prefix('instruc
     Route::resource('lecture', CourseLectureController::class);
 
     Route::get('/get-subcategories/{categoryId}', [CategoryController::class,'getSubcategories']);
+
+    // Manage coupon
+    Route::resource('coupon',CouponController::class);
 
     
   
