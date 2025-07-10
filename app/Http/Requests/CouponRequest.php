@@ -25,10 +25,10 @@ class CouponRequest extends FormRequest
         return [
             //
             'coupon_name' => "required|string|max:255|unique:coupons,coupon_name,{$couponId}",
-             'coupon_discount' => 'required|string|max:10000',
-             'coupon_validity' => 'required|date|after_or_equal:today',
-             
-             'status' => 'required|integer',
+            'coupon_discount' => 'required|numeric|max:10000',
+            'coupon_validity' => 'required|date|after_or_equal:today',
+
+            'status' => 'nullable|integer|in:0,1',
         ];
     }
 }

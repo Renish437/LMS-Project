@@ -143,6 +143,8 @@ Route::delete('/remove/cart', [CartController::class, 'removeCart'])->name('cart
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
 Route::post('/checkout', [CheckoutController::class, 'checkout'])->name('checkout.store');
 
+Route::post('/apply-coupon', [CouponController::class, 'applyCoupon'])->name('coupon.apply');
+
 
 
 
