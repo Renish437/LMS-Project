@@ -12,6 +12,7 @@ use App\Http\Controllers\backend\CourseSectionController;
 use App\Http\Controllers\backend\InfoBoxController;
 use App\Http\Controllers\backend\InstructorController;
 use App\Http\Controllers\backend\InstructorProfileController;
+use App\Http\Controllers\backend\SettingController;
 use App\Http\Controllers\backend\SliderController;
 use App\Http\Controllers\backend\SubCategoryController;
 use App\Http\Controllers\backend\UserController;
@@ -62,6 +63,13 @@ Route::middleware(['auth', 'verified','role:admin'])->prefix('admin')->name('adm
     Route::resource('instructor', AdminInstructorController::class);
     Route::post('/update-status',[AdminInstructorController::class,'updateStatus'])->name('instructor.status');
     Route::get('/instructor-active-list',[AdminInstructorController::class,'instructorsActive'])->name('active.list');
+
+    // Manage Setting 
+    Route::get('/stripe-setting', [SettingController::class,'stripeSetting'])->name('stripe.setting');
+    Route::post('/stripe-setting/update', [SettingController::class,'updateStripeSettings'])->name('stripe.settings.update');
+
+  
+
 });
 
 //Instructor login
@@ -144,6 +152,7 @@ Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.in
 Route::post('/checkout', [CheckoutController::class, 'checkout'])->name('checkout.store');
 
 Route::post('/apply-coupon', [CouponController::class, 'applyCoupon'])->name('coupon.apply');
+Route::post('/apply-checkout-coupon', [CouponController::class, 'applyCheckoutCoupon'])->name('coupon.checkout-apply');
 
 
 

@@ -64,7 +64,7 @@
                         <input class="form-control form--control pl-3" type="text" id="couponCode" name="coupon"
                             placeholder="Coupon code">
                         <div class="input-group-append">
-                            <button type="button" id="applyCouponBtn" class="btn theme-btn">Apply Code</button>
+                            <button type="submit" id="applyCouponBtn" class="btn theme-btn">Apply Code</button>
                         </div>
                     </div>
                     @endif
