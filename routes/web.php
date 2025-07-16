@@ -21,6 +21,7 @@ use App\Http\Controllers\frontend\CartController;
 use App\Http\Controllers\frontend\CheckoutController;
 use App\Http\Controllers\frontend\CourseDetailController;
 use App\Http\Controllers\frontend\HomeController;
+use App\Http\Controllers\frontend\OrderController;
 use App\Http\Controllers\frontend\PageController;
 use App\Http\Controllers\frontend\WhishlistController;
 use App\Http\Controllers\ProfileController;
@@ -149,10 +150,15 @@ Route::delete('/remove/cart', [CartController::class, 'removeCart'])->name('cart
 
 // Chekout route
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
-Route::post('/checkout', [CheckoutController::class, 'checkout'])->name('checkout.store');
+// Route::post('/checkout', [CheckoutController::class, 'checkout'])->name('checkout.store');
 
 Route::post('/apply-coupon', [CouponController::class, 'applyCoupon'])->name('coupon.apply');
-Route::post('/apply-checkout-coupon', [CouponController::class, 'applyCheckoutCoupon'])->name('coupon.checkout-apply');
+
+Route::middleware('auth')->group(function () {
+    Route::post('/order',[OrderController::class,'order'])->name('order.store');
+    Route::get('/payment-success',[OrderController::class,'success'])->name('success');
+    Route::get('/payment-cancel',[OrderController::class,'cancel'])->name('cancel');
+});
 
 
 

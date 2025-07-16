@@ -26,7 +26,7 @@
                 Sub Total: ${{ $subTotal }}
             </div>
             <li>
-                <a href="{{ route('checkout.index') }}" class="btn theme-btn w-100">Go to checkout <i
+                <a href="{{ route('cart.index') }}" class="btn theme-btn w-100">Go to cart <i
                         class="la la-arrow-right icon ml-1"></i></a>
             </li>
         </ul>

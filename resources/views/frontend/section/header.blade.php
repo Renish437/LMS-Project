@@ -215,7 +215,7 @@
 
                             <!-- end wishlist-card -->
                             <div class="shop-cart mr-4" id="cart">
-                                {{-- Ajax loaded --}}
+                                {{-- Ajax loaded  --}}
 
                                 
                             </div>

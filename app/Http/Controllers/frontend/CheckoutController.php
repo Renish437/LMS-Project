@@ -37,7 +37,5 @@ class CheckoutController extends Controller
         $user = Auth::user();
         return view('frontend.pages.checkout.index',compact('carts','total','user','cartItems'));
     }
-    // public function checkout(Request $request){
-    //     dd($request->all());
-    // }
+ 
 }

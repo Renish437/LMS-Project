@@ -125,48 +125,6 @@ class CouponController extends Controller
             'discounts' => $discounts,
         ]);
     }
-       public function applyCheckoutCoupon(ApplyCouponRequest $request)
-    {
-        // Get validated input
-        $validated = $request->validated();
-        $couponName = $validated['coupon'];
-        $courseIds = $validated['course_id'];
-        $instructorIds = $validated['instructor_id'];
-
-        // Get the discounts from your service
-        $discounts = $this->applyCouponService->applyCoupon($couponName, $courseIds, $instructorIds);
-
-        // If the coupon is invalid or not applicable
-        if (empty($discounts)) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Invalid coupon code or not applicable to the items in your cart.',
-            ], 422); // Use 422 for a validation-type error
-        }
-
-        // Calculate total discount from the service response
-        $totalDiscount = collect($discounts)->sum('discount');
-
-        // Get the original cart total before any coupon
-        // Replace this with your own logic to get the cart subtotal
-        $cartTotal = Cart::totalFloat();
-
-        // Calculate the new total price
-        $newTotalPrice = $cartTotal - $totalDiscount;
-
-        // Store coupon details in the session for page reloads
-        session()->put('coupon', [
-            'name' => $couponName,
-            'discount_amount' => $totalDiscount,
-        ]);
-
-        // Return a JSON response with all the data the frontend needs
-        return response()->json([
-            'success'         => true,
-            'message'         => 'Coupon applied successfully!',
-            'discount_amount' => $totalDiscount,
-            'total_price'     => $newTotalPrice,
-        ]);
-    }
+    
 
 }
