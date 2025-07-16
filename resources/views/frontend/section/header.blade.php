@@ -82,12 +82,12 @@
                                             @foreach ($categories as $category)
                                                 
                                             <li>
-                                                <a href="course-grid.html">{{ $category->name }} <i class="la la-angle-right"></i></a>
+                                                <a href="{{ route('front.category.single', $category->slug) }}">{{ $category->name }} <i class="la la-angle-right"></i></a>
                                                 <ul class="sub-menu">
                                                    
                                                    @foreach ($category->subcategories as  $subcategory)
                                                        
-                                                        <li><a href="#">{{ $subcategory->name }}</a></li>
+                                                        <li><a href="{{ route('front.subcategory', $subcategory->slug) }}">{{ $subcategory->name }}</a></li>
                                                        
                                                    @endforeach
                                                 </ul>

@@ -9,6 +9,7 @@ use App\Models\CourseLecture;
 use App\Models\CourseSection;
 use App\Models\InfoBox;
 use App\Models\Slider;
+use App\Models\SubCategory;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -53,5 +54,23 @@ class PageController extends BaseController
 
 
         return view('frontend.pages.course_details.index',compact('course','course_content','total_no_lecture','similar_courses','related_courses','total_lecture_duration','total_hours'));
+    }
+    public function subcategory($slug){
+        $slug = SubCategory::where('slug', $slug)->first();
+
+        $all_courses = \App\Models\Course::where('subcategory_id', $slug->id)->with('user:id,name,email,bio,created_at')->get();
+        return view('frontend.pages.subcategory.index',compact('all_courses','slug'));
+    }
+    public function allCategories(){
+        $all_categories = Category::with('courses','courses.user')->get();
+        return view('frontend.pages.category.index',compact('all_categories'));
+    }
+    public function category($slug){
+     
+    $slug = Category::where('slug', $slug)->first();
+
+    $all_courses = \App\Models\Course::where('category_id', $slug->id)->with('user:id,name,email,bio,created_at')->get();
+   
+    return view('frontend.pages.category.show',compact('all_courses','slug'));
     }
 }

@@ -25,18 +25,18 @@
 </x-guest-layout> --}}
 @extends('frontend.master')
 @section('content')
-
+ 
 <section class="breadcrumb-area section-padding img-bg-2">
     <div class="overlay"></div>
     <div class="container">
         <div class="breadcrumb-content d-flex flex-wrap align-items-center justify-content-between">
             <div class="section-heading">
-                <h2 class="section__title text-white">Recover Password</h2>
+                <h2 class="section__title text-white">Password Password</h2>
             </div>
             <ul class="generic-list-item generic-list-item-white generic-list-item-arrow d-flex flex-wrap align-items-center">
                 <li><a href="index.html">Home</a></li>
                 <li>Pages</li>
-                <li>Recover Password</li>
+                <li>Password Password</li>
             </ul>
         </div><!-- end breadcrumb-content -->
     </div><!-- end container -->
@@ -54,24 +54,27 @@
         <div class="row">
             <div class="col-lg-7 mx-auto">
                 <div class="card card-item">
+                     <x-auth-session-status class="mb-4 d-flex p-2 bg-success align-items-center text-white" :status="session('status')" />
                     <div class="card-body">
-                        <h3 class="card-title fs-24 lh-35 pb-2">Reset Password!</h3>
-                        <p class="fs-15 lh-24 pb-3">Enter the email of your account to reset password. Then you will
-                            receive a link to email to reset the password.If you have any issue about reset password <a href="contact.html" class="text-color hover-underline">contact us</a></p>
+                        <h3 class="card-title fs-24 lh-35 pb-2">Forgot Password ?</h3>
+                        <p class="fs-15 lh-24 pb-3">Enter the email of your account to forgot password. Then you will
+                            receive a link to email to forgot the password.If you have any issue about forgot password <a href="{{ url('/') }}" class="text-color hover-underline">contact us</a></p>
                         <div class="section-block"></div>
                         <form method="post" class="pt-4">
+                            @csrf
                             <div class="input-box">
                                 <label class="label-text">Email Address</label>
                                 <div class="form-group">
-                                    <input class="form-control form--control" type="text" name="name" placeholder="Enter email Address">
+                                    <input class="form-control form--control" type="text"  value="{{ old('email') }}" name="email" placeholder="Enter email Address">
+                                    <x-input-error :messages="$errors->get('email')" class="mt-2 text-danger" />
                                     <span class="la la-user input-icon"></span>
                                 </div>
                             </div><!-- end input-box -->
                             <div class="btn-box">
-                                <button class="btn theme-btn" type="submit">Reset Password <i class="la la-arrow-right icon ml-1"></i></button>
+                                <button class="btn theme-btn" type="submit">Forgot Password <i class="la la-arrow-right icon ml-1"></i></button>
                                 <div class="d-flex align-items-center justify-content-between fs-14 pt-2">
-                                    <a href="login.html" class="text-color hover-underline">Login</a>
-                                    <p>Not a member? <a href="sign-up.html" class="text-color hover-underline">Register</a></p>
+                                    <a href="{{ route('login') }}" class="text-color hover-underline">Login</a>
+                                    <p>Not a member? <a href="{{ route('register') }}" class="text-color hover-underline">Register</a></p>
                                 </div>
                             </div><!-- end btn-box -->
                         </form>

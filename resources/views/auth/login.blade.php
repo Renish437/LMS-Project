@@ -82,13 +82,18 @@
         <div class="row">
             <div class="col-lg-7 mx-auto">
                 <div class="card card-item">
+                     <x-auth-session-status class="mb-4 d-flex p-2 bg-success align-items-center text-white" :status="session('status')" />
                     <div class="card-body">
                         <h3 class="card-title text-center fs-24 lh-35 pb-4">Login to Your Account!</h3>
                         <div class="section-block"></div>
                         <form method="post" action="{{ route('login') }}" class="pt-4">
                             @csrf
                             <div class="d-flex flex-wrap align-items-center pb-4">
-                                <button class="btn theme-btn flex-grow-1 mx-2 mb-2"><i class="la la-google mr-2"></i>Google</button>
+                                <a href="{{ route('google.login') }}" class="btn theme-btn flex-grow-1 mx-2 mb-2"><i class="la la-google mr-2"></i>Google</a>
+            
+                            </div>
+                            <div class="d-flex flex-wrap align-items-center pb-4">
+                                <a href="{{ route('github.login') }}" class="btn theme-btn flex-grow-1 mx-2 mb-2"><i class="la la-github mr-2"></i>Github</a>
             
                             </div>
                             <div class="text-center pt-3 pb-4">
@@ -99,7 +104,7 @@
                                 <div class="form-group">
                                     <input class="form-control form--control" type="text" name="email" value="{{ old('email') }}" placeholder="Email ">
                                     <span class="la la-user input-icon"></span>
-                                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                                    <x-input-error :messages="$errors->get('email')" class="mt-2 text-danger" />
 
                                 </div>
                             </div><!-- end input-box -->
@@ -117,7 +122,7 @@
                                     </div>
                                       
                                 </div>
-                                <x-input-error :messages="$errors->get('password')" class="my-1" />
+                                <x-input-error :messages="$errors->get('password')" class="my-1 text-danger" />
                             </div><!-- end input-box -->
                             <div class="btn-box">
                                 <div class="d-flex align-items-center justify-content-between pb-4">

@@ -95,7 +95,7 @@
                                 <div class="form-group">
                                     <input class="form-control form--control" type="text" name="name" value="{{ old('name') }}" placeholder="First name">
                                     <span class="la la-user input-icon"></span>
-                                     <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                                     <x-input-error :messages="$errors->get('name')" class="mt-2 text-danger" />
                                 </div>
                             </div><!-- end input-box -->
                           
@@ -105,7 +105,7 @@
                                 <div class="form-group">
                                     <input class="form-control form--control" type="email" name="email" value="{{ old('email') }}" placeholder="Enter email address">
                                     <span class="la la-envelope input-icon"></span>
-                                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                                     <x-input-error :messages="$errors->get('email')" class="mt-2 text-danger" />
                                 </div>
                             </div><!-- end input-box -->
                             <div class="input-box">
@@ -122,7 +122,7 @@
                                         </button>
                                     </div>
                                 </div>
-                                <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                                <x-input-error :messages="$errors->get('password')" class="mt-2 text-danger" />
                             </div><!-- end input-box -->
                             <div class="input-box">
                                 <label class="label-text">Confirm Password</label>
@@ -138,7 +138,7 @@
                                         </button>
                                     </div>
                                 </div>
-                                 <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+                                 <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2 text-danger" />
                             </div><!-- end input-box -->
 
                             <div class="btn-box">

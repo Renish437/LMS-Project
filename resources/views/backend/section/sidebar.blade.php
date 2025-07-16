@@ -52,6 +52,34 @@
                 
              </ul>
          </li>
+            <li class="{{ setActive(['admin.course*']) }}">
+             <a href="javascript:;" class="has-arrow">
+                 <div class="parent-icon"><i class="bx bx-category"></i>
+                 </div>
+                 <div class="menu-title">Manage Courses</div>
+             </a>
+             <ul>
+                 <li class="{{ setActive(['admin.course.index']) }}"> <a href="{{ route('admin.course.index') }}">
+                    <i class='bx bx-radio-circle'></i>All course</a>
+                 </li>
+                
+                
+             </ul>
+         </li>
+            <li class="{{ setActive(['admin.order*']) }}">
+             <a href="javascript:;" class="has-arrow">
+                 <div class="parent-icon"><i class="bx bx-category"></i>
+                 </div>
+                 <div class="menu-title">Manage Order</div>
+             </a>
+             <ul>
+                 <li class="{{ setActive(['admin.order.index']) }}"> <a href="{{ route('admin.order.index') }}">
+                    <i class='bx bx-radio-circle'></i>All Orders</a>
+                 </li>
+                
+                
+             </ul>
+         </li>
          <li class="{{ setActive(['admin.slider*','admin.infobox*']) }}">
              <a href="javascript:;" class="has-arrow">
                  <div class="parent-icon"><i class="bx bx-category"></i>
@@ -70,6 +98,8 @@
                 
              </ul>
          </li>
+           </li>
+         
          <li class="{{ setActive(['admin.stripe*']) }}">
              <a href="javascript:;" class="has-arrow">
                  <div class="parent-icon"><i class="bx bx-category"></i>
@@ -83,9 +113,12 @@
                  <li class="{{ setActive(['admin.stripe*']) }}"> <a href="{{ route('admin.stripe.setting') }}">
                     <i class='bx bx-radio-circle'></i>Stripe Setting</a>
                  </li>
-                 {{-- <li class="{{ setActive(['admin.infobox*']) }}"> <a href="{{ route('admin.infobox.index') }}">
+                 <li class="{{ setActive(['admin.google*']) }}"> <a href="{{ route('admin.google.setting') }}">
                     <i class='bx bx-radio-circle'></i>Google Setting</a>
-                 </li> --}}
+                 </li>
+                 <li class="{{ setActive(['admin.github*']) }}"> <a href="{{ route('admin.github.setting') }}">
+                    <i class='bx bx-radio-circle'></i>Github Setting</a>
+                 </li>
               
                 
              </ul>

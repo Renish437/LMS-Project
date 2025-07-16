@@ -8,4 +8,13 @@ class Order extends Model
 {
     //
     protected $guarded = [];
+    public function payment(){
+        return $this->belongsTo(Payment::class,'payment_id','id');
+    }
+    public function instructor(){
+        return $this->belongsTo(User::class,'instructor_id','id');
+    }
+    public function course(){
+        return $this->belongsTo(Course::class,'course_id','id');
+    }
 }
