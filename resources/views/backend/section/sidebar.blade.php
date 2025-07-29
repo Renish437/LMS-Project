@@ -80,7 +80,26 @@
                 
              </ul>
          </li>
-         <li class="{{ setActive(['admin.slider*','admin.infobox*']) }}">
+         </li>
+            <li class="{{ setActive(['admin.partner*']) }}">
+             <a href="javascript:;" class="has-arrow">
+                 <div class="parent-icon"><i class="bx bx-category"></i>
+                 </div>
+                 <div class="menu-title">Manage Partners</div>
+             </a>
+             <ul>
+                 <li class="{{ setActive(['admin.partner.index']) }}"> <a href="{{ route('admin.partner.index') }}">
+                    <i class='bx bx-radio-circle'></i>All Partners</a>
+                 </li>
+                 <li class="{{ setActive(['admin.partner.create']) }}"> <a href="{{ route('admin.partner.create') }}">
+                    <i class='bx bx-radio-circle'></i>Create Partners</a>
+                 </li>
+                
+                
+                
+             </ul>
+         </li>
+         <li class="{{ setActive(['admin.slider*','admin.infobox*','admin.site-setting*']) }}">
              <a href="javascript:;" class="has-arrow">
                  <div class="parent-icon"><i class="bx bx-category"></i>
                  </div>
@@ -93,6 +112,9 @@
                  <li class="{{ setActive(['admin.infobox*']) }}"> <a href="{{ route('admin.infobox.index') }}">
                     <i class='bx bx-radio-circle'></i>Manage Infobox</a>
                  </li>
+                  <li class="{{ setActive(['admin.site-setting*']) }}">
+                    <a href="{{route('admin.site-setting.index')}}"><i class='bx bx-radio-circle'></i>Site Settings</a>
+                </li>
               
               
                 
@@ -118,6 +140,9 @@
                  </li>
                  <li class="{{ setActive(['admin.github*']) }}"> <a href="{{ route('admin.github.setting') }}">
                     <i class='bx bx-radio-circle'></i>Github Setting</a>
+                 </li>
+                 <li class="{{ setActive(['admin.mailSetting*']) }}"> <a href="{{ route('admin.mailSetting') }}">
+                    <i class='bx bx-radio-circle'></i>Mail Setting</a>
                  </li>
               
                 

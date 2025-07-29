@@ -13,7 +13,9 @@ use App\Http\Controllers\backend\CourseSectionController;
 use App\Http\Controllers\backend\InfoBoxController;
 use App\Http\Controllers\backend\InstructorController;
 use App\Http\Controllers\backend\InstructorProfileController;
+use App\Http\Controllers\backend\PartnerController;
 use App\Http\Controllers\backend\SettingController;
+use App\Http\Controllers\backend\SiteSettingController;
 use App\Http\Controllers\backend\SliderController;
 use App\Http\Controllers\backend\SubCategoryController;
 use App\Http\Controllers\backend\UserController;
@@ -44,6 +46,10 @@ Route::post('/apply-coupon', [CouponController::class, 'applyCoupon'])->name('co
 Route::get('/subcategory/{slug}', [PageController::class, 'subcategory'])->name('front.subcategory');
 Route::get('/all-categories', [PageController::class, 'allCategories'])->name('front.all-categories');
 Route::get('/category/{slug}', [PageController::class, 'category'])->name('front.category.single');
+Route::get('/auth/google', [SocialController::class, 'redirectToGoogle'])->name('google.login');
+Route::get('/auth/google-callback', [SocialController::class, 'handleGoogleCallback'])->name('google.callback');
+Route::get('/auth/github', [SocialController::class, 'redirectToGithub'])->name('github.login');
+Route::get('/auth/github-callback', [SocialController::class, 'handleGithubCallback'])->name('github.callback');
 Route::middleware('auth')->group(function () {
     Route::post('/order',[OrderController::class,'order'])->name('order.store');
     Route::get('/payment-success',[OrderController::class,'success'])->name('success');
@@ -136,6 +142,12 @@ Route::middleware(['auth', 'verified','role:admin','prevent-back-history'])->pre
     Route::get('/instructor-active-list',[AdminInstructorController::class,'instructorsActive'])->name('active.list');
 
     // Manage Setting 
+
+    // Mail setting 
+    Route::get('/mail-setting', [SettingController::class, 'mailSetting'])->name('mailSetting');
+    Route::put('/mail-settings/update', [SettingController::class, 'updateMailSettings'])->name('mail.settings.update');
+
+
     Route::get('/stripe-setting', [SettingController::class,'stripeSetting'])->name('stripe.setting');
     Route::post('/stripe-setting/update', [SettingController::class,'updateStripeSettings'])->name('stripe.settings.update');
     // Google setting
@@ -155,8 +167,10 @@ Route::middleware(['auth', 'verified','role:admin','prevent-back-history'])->pre
     Route::get('/order/{id}', [BackendOrderController::class,'adminShow'])->name('order.show');
     // Route::post('/order/update', [OrderController::class,'update'])->name('order.update');
 
-    //
-
+    // Manage Partners
+    Route::resource('partner', PartnerController::class);
+    // Manage Site settings
+    Route::resource('site-setting', SiteSettingController::class);
   
 
 });
